@@ -1,0 +1,39 @@
+package ru.gunmarket.model;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+import javax.validation.constraints.Min;
+
+import static ru.gunmarket.model.Product.PRODUCT_ID;
+import static ru.gunmarket.model.Shop.SHOP_ID;
+
+@Data
+@Entity
+@Table(name = Offer.OFFER_TABLE)
+@NoArgsConstructor
+public class Offer {
+    public static final String OFFER_ID = "offerId";
+    public static final String OFFER_TABLE = "offer";
+    public static final String OFFER_POPULARITY = "popularity";
+
+    @Id
+    @Column(name = OFFER_ID, nullable = false)
+    private String productInShopId;
+
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = PRODUCT_ID, nullable = false)
+    private Product product;
+
+    @ManyToOne
+    @JoinColumn(name = SHOP_ID, nullable = false)
+    private Shop shop;
+
+    @Min(value = 0, message = "Offer price cannot be lower than 0")
+    private double price;
+    private boolean inStock;
+    private String link;
+}

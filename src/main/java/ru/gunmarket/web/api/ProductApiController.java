@@ -26,9 +26,9 @@ public class ProductApiController implements ProductApi {
 
     @CrossOrigin
     @GetMapping(value = "/product/{productId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ExtendedProductDto getById(@PathVariable long productId) {
+    public ResponseEntity<ExtendedProductDto> getById(@PathVariable long productId) {
         Product product = productService.getById(productId);
-        return productMapper.productToExtendedProductDto(product);
+        return ResponseEntity.ok(productMapper.productToExtendedProductDto(product));
     }
 
     @CrossOrigin

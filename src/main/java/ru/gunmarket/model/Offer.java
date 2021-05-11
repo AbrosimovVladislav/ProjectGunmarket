@@ -1,8 +1,10 @@
 package ru.gunmarket.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
@@ -14,6 +16,8 @@ import static ru.gunmarket.model.Shop.SHOP_ID;
 @Entity
 @Table(name = Offer.OFFER_TABLE)
 @NoArgsConstructor
+@Accessors(chain = true)
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Offer {
     public static final String OFFER_ID = "offerId";
     public static final String OFFER_TABLE = "offer";

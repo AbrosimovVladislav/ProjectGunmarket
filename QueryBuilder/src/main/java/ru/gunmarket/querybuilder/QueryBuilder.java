@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.RequestScope;
 
 import javax.persistence.criteria.*;
 import java.util.ArrayList;
@@ -18,7 +19,8 @@ public class QueryBuilder {
     /**
      * This is used to avoid multiple `join` on the same table.
      */
-    private final Map<String, Path> pathCache;
+
+    private final PathCache pathCache;
     private final QBParamExtractor qbParamExtractor;
 
     public <BE extends BasicEntity> CriteriaQuery<BE> createCriteriaQueryFromParamMap(CriteriaBuilder criteriaBuilder,
@@ -55,12 +57,12 @@ public class QueryBuilder {
             path = root.get(paramName);
         } else {
             String rootEntityName = entities.get(0);
-            path = pathCache.computeIfAbsent(rootEntityName, root::join);
+            path = pathCache.getValue().computeIfAbsent(rootEntityName, root::join);
             for (int i = 1; i < entities.size(); i++) {
                 String childEntityName = entities.get(i);
-                if (pathCache.get(childEntityName) == null) {
+                if (pathCache.getValue().get(childEntityName) == null) {
                     path = ((Join) path).join(childEntityName);
-                    pathCache.put(childEntityName, path);
+                    pathCache.getValue().put(childEntityName, path);
                 }
             }
             path = path.get(paramName);

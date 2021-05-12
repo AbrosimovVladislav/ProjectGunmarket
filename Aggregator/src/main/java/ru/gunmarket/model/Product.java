@@ -1,11 +1,11 @@
 package ru.gunmarket.model;
 
+import ru.gunmarket.model.product_attributes.Brand;
+import ru.gunmarket.model.product_attributes.Type;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.Accessors;
-import ru.gunmarket.model.product_attributes.Brand;
-import ru.gunmarket.model.product_attributes.Type;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
@@ -13,8 +13,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 import static ru.gunmarket.model.Product.PRODUCT_TABLE;
-import static ru.gunmarket.model.product_attributes.Brand.BRAND_ID;
-import static ru.gunmarket.model.product_attributes.Type.TYPE_ID;
 
 @Entity
 @Table(name = PRODUCT_TABLE)
@@ -36,11 +34,11 @@ public class Product {
     private String extendedName;
 
     @ManyToOne
-    @JoinColumn(name = BRAND_ID, nullable = false)
+    @JoinColumn(name = Brand.BRAND_ID, nullable = false)
     private Brand brand;
 
     @ManyToOne
-    @JoinColumn(name = TYPE_ID, nullable = false)
+    @JoinColumn(name = Type.TYPE_ID, nullable = false)
     private Type type;
 
     @OneToMany(mappedBy = PRODUCT_TABLE)

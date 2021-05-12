@@ -1,9 +1,9 @@
 package ru.gunmarket.service;
 
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
 import ru.gunmarket.model.Product;
 import ru.gunmarket.repo.ProductRepo;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -15,6 +15,7 @@ public class ProductService {
     public Product getById(long id) {
         return productRepo.getOne(id);
     }
+
     public List<Product> getAll() {
         return productRepo.findAll();
     }

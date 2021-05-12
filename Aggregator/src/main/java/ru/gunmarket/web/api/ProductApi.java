@@ -1,9 +1,9 @@
 package ru.gunmarket.web.api;
 
-import io.swagger.annotations.ApiOperation;
-import org.springframework.http.ResponseEntity;
 import ru.gunmarket.web.dto.ExtendedProductDto;
 import ru.gunmarket.web.dto.ProductDto;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 

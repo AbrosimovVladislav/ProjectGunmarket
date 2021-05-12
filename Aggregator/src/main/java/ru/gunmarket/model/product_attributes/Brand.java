@@ -1,9 +1,9 @@
 package ru.gunmarket.model.product_attributes;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import ru.gunmarket.model.Product;
 import lombok.Data;
 import lombok.ToString;
-import ru.gunmarket.model.Product;
 
 import javax.persistence.*;
 import java.util.Set;

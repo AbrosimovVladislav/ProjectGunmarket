@@ -1,5 +1,10 @@
 package ru.gunmarket.web.api;
 
+import ru.gunmarket.model.Product;
+import ru.gunmarket.service.ProductService;
+import ru.gunmarket.web.dto.ExtendedProductDto;
+import ru.gunmarket.web.dto.ProductDto;
+import ru.gunmarket.web.mapper.ProductMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
@@ -8,11 +13,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
-import ru.gunmarket.model.Product;
-import ru.gunmarket.service.ProductService;
-import ru.gunmarket.web.dto.ExtendedProductDto;
-import ru.gunmarket.web.dto.ProductDto;
-import ru.gunmarket.web.mapper.ProductMapper;
 
 import java.util.List;
 

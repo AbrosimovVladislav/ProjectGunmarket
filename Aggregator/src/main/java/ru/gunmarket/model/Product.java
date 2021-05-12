@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.Accessors;
+import ru.gunmarket.querybuilder.BasicEntity;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
@@ -20,9 +21,10 @@ import static ru.gunmarket.model.Product.PRODUCT_TABLE;
 @Getter
 @Setter
 @ToString(exclude = "offer")
-public class Product {
+public class Product implements BasicEntity {
     public static final String PRODUCT_TABLE = "product";
     public static final String PRODUCT_ID = "productId";
+    public static final String PRODUCT_MIN_PRICE = "minPrice";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -21,7 +21,6 @@ import static ru.gunmarket.model.Shop.SHOP_ID;
 public class Offer {
     public static final String OFFER_ID = "offerId";
     public static final String OFFER_TABLE = "offer";
-    public static final String OFFER_POPULARITY = "popularity";
 
     @Id
     @Column(name = OFFER_ID, nullable = false)

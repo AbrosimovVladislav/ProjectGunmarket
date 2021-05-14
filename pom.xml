@@ -12,6 +12,8 @@
     <modules>
         <module>QueryBuilder</module>
         <module>Aggregator</module>
+        <module>DatabaseFiller</module>
+        <module>CommonDataLayer</module>
     </modules>
 
     <parent>

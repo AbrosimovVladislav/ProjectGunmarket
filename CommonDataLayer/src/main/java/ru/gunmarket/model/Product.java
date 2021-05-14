@@ -1,7 +1,5 @@
 package ru.gunmarket.model;
 
-import ru.gunmarket.model.product_attributes.Brand;
-import ru.gunmarket.model.product_attributes.Type;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

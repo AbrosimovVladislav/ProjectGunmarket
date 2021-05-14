@@ -1,14 +1,13 @@
-package ru.gunmarket.model.product_attributes;
+package ru.gunmarket.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import ru.gunmarket.model.Product;
 import lombok.Data;
 import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.Set;
 
-import static ru.gunmarket.model.product_attributes.Brand.BRAND_TABLE;
+import static ru.gunmarket.model.Brand.BRAND_TABLE;
 
 @Data
 @Entity

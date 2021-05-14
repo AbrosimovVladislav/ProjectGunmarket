@@ -9,22 +9,21 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>Aggregator</artifactId>
+    <artifactId>CommonModel</artifactId>
     <groupId>ru.gunmarket</groupId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0</version>
 
     <properties>
         <maven.compiler.source>14</maven.compiler.source>
         <maven.compiler.target>14</maven.compiler.target>
-        <commonmodel.version>1.0</commonmodel.version>
+        <querybuilder.version>1.0</querybuilder.version>
     </properties>
 
     <dependencies>
-
         <dependency>
             <groupId>ru.gunmarket</groupId>
-            <artifactId>CommonModel</artifactId>
-            <version>${commonmodel.version}</version>
+            <artifactId>QueryBuilder</artifactId>
+            <version>${querybuilder.version}</version>
         </dependency>
     </dependencies>
 

@@ -1,10 +1,10 @@
-package ru.gunmarket.model.product_attributes;
+package ru.gunmarket.model;
 
 import lombok.Data;
 
 import javax.persistence.*;
 
-import static ru.gunmarket.model.product_attributes.Type.TYPE_TABLE;
+import static ru.gunmarket.model.Type.TYPE_TABLE;
 
 @Data
 @Entity

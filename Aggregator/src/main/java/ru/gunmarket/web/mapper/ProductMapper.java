@@ -32,6 +32,7 @@ public class ProductMapper {
         return new ProductDto().setProductId(product.getProductId())
                 .setName(product.getName())
                 .setBrand(product.getBrand().getShortName())
+                .setSrcImageUrl(product.getSrcImageUrl())
                 .setType(product.getType());
     }
 

@@ -67,8 +67,15 @@ public class ProductScrapper implements InitializingBean {
                 .setName(name)
                 .setExtendedName(scrapExtendedName(doc))
                 .setBrand(scrapBrand(doc))
+                .setSrcImageUrl(scrapeImageUrl(doc))
                 .setType(scrapType(type));
         return product;
+    }
+
+    private String scrapeImageUrl(Document doc){
+        String imgLine = doc.getElementsByClass("swiper-wrapper").get(0).getElementsByClass("swiper-slide").get(0).getElementsByTag("img").get(0).attr("src");
+        imgLine = imgLine.replaceAll("320_320","720_720");
+        return "https://www.huntworld.ru/" + imgLine;
     }
 
     private String scrapExtendedName(Document doc) {

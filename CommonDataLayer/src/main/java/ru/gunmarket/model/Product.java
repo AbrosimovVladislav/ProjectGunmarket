@@ -32,6 +32,8 @@ public class Product implements BasicEntity {
     private String name;
 
     private String extendedName;
+    private String srcImageUrl;
+    private String imageUrl;
 
     @ManyToOne
     @JoinColumn(name = Brand.BRAND_ID, nullable = false)

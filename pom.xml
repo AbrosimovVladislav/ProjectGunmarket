@@ -9,18 +9,11 @@
     <packaging>pom</packaging>
     <name>ProjectGunmarket</name>
     <version>0.0.1-SNAPSHOT</version>
-    <modules>
-        <module>QueryBuilder</module>
-        <module>Aggregator</module>
-        <module>DatabaseFiller</module>
-        <module>CommonDataLayer</module>
-    </modules>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.2.7.RELEASE</version>
-        <relativePath/>
     </parent>
 
     <properties>

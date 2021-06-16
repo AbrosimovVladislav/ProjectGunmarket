@@ -1,0 +1,29 @@
+name: Publish Docker image
+on:
+  push:
+    branches:
+      - 'master'
+jobs:
+  push_to_registry:
+    name: Push Docker image to GitHub Packages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2.3.4
+      - name: Set up JDK
+        uses: actions/setup-java@v1.4.3
+        with:
+          java-version: 11
+          java-package: jdk
+          architecture: x64
+      - name: Build with Maven
+        run: mvn -B verify
+      - name: Push to GitHub Packages
+        env:
+          CR_PAT: ${{ secrets.CR_PAT }}
+          TAG: ghcr.io/${{ github.repository_owner }}/${{ github.repository }}
+          USER: ${{ github.repository_owner }}
+        run: |
+          echo $CR_PAT | docker login ghcr.io -u $USER --password-stdin
+          docker build -t $TAG .
+          docker push $TAG
